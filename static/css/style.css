@@ -63,3 +63,12 @@ a.btn {
     grid-gap: 1.5em;
   }
 }
+
+@media(max-width: 1000px) {
+  .results-container {
+    width: 85vw;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2em;
+  }
+}
+
