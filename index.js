@@ -25,47 +25,48 @@ app.use(
 
 // prefix match
   // LANDING PAGE
-app.get(['/', '/index.html'], (req, resp) => {
-  resp.status(200)
-  resp.type('text/html')
-  resp.render('index')
-})
+  app.get(['/', '/index.html'], (req, resp) => {
+    resp.status(200)
+    resp.type('text/html')
+    resp.render('index')
+  })
 
-const ENDPOINT = 'https://api.giphy.com/v1/gifs/search'
+  const ENDPOINT = 'https://api.giphy.com/v1/gifs/search'
 
-app.get('/search', async (req, resp) => {
-  const search = req.query['keyword']
-  console.log('search term: ', search)
-  const url = withQuery(
-  ENDPOINT,
-    {
-      api_key: process.env.GIPHY_API_KEY,
-      q: search,
-      limit: 15,
-      rating: 'r',
-      lang: 'en'
+  app.get('/search', async (req, resp) => {
+    const search = req.query['keyword']
+    console.log('search term: ', search)
+    const url = withQuery(
+      ENDPOINT,
+      {
+        api_key: process.env.GIPHY_API_KEY,
+        q: search,
+        limit: 15,
+        rating: 'r',
+        lang: 'en'
+      }
+      )
+    const results = await fetch(url)
+    const gifs = await results.json()
+    const gifsImgArr = []
+    gifs.data.forEach((e) => {
+      gifsImgArr.push({
+        img: e.images.fixed_height.url,
+        url: e.url})
+    })
+    if (gifsImgArr.length > 0) {
+      resp.status(200)
+      resp.render('search', {
+        gifsImgArr: gifsImgArr,
+        keyword: search
+      })
+    } else {
+      resp.status(204)
+      resp.render('no_result',{
+        keyword: search
+      })
     }
-  )
-  const results = await fetch(url)
-  const gifs = await results.json()
-  const gifsImgArr = []
-  gifs.data.forEach((e) => {
-    gifsImgArr.push({
-      img: e.images.fixed_height.url,
-      url: e.url})
   })
-  resp.status(200)
-  resp.render('search', {
-    gifsImgArr: gifsImgArr,
-    keyword: search
-  })
-})
-
-app.get('/img', (req,resp) => {
-  resp.status(200)
-  resp.type('text/html')
-  resp.render('img')
-})
 
 // Start express
 if (process.env.GIPHY_API_KEY) {
