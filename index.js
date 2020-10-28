@@ -8,7 +8,7 @@ const fetch = require('node-fetch')
 const withQuery = require('with-query').default
 
 // Configure the environment
-const PORT = parseInt(process.argv[2]) || parseInt(process.env.APP_PORT) || 3000
+const PORT = parseInt(process.env.APP_PORT) || 3000
 
 // Create an instance of the express application
 const app = express()
