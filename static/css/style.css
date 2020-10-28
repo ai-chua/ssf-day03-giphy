@@ -1,0 +1,57 @@
+/*HYPERLINKS*/
+p, h1, h2, h3, h4 {
+  color: #343a40;
+}
+
+a, a:active, a:visited {
+  color: #343a40;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #23272b;
+}
+
+a.btn {
+  color: #fff;
+}
+
+/*FONTS*/
+.keyword {
+  background-color: #343a40;
+  color: #fff;
+  font-family: 'courier';
+  padding: 0.5em;
+  font-weight: bold;
+}
+
+.footer {
+  font-size: 12px;
+}
+
+/*SEARCH RESULTS*/
+.results-container {
+  width: 70vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2em;
+  flex-grow: 1;
+  padding: 0.8em;
+}
+
+.card {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  border-radius: 1px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 22px;
+  color: white;
+  font-weight: bolder;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+}

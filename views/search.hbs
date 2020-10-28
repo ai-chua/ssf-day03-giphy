@@ -1,0 +1,10 @@
+<p class="my-2">You searched for <span class="keyword">{{ keyword }}</span></p>
+
+<div class="results-container my-2">
+  {{#each gifsImgArr as |gif| }}
+  <a class="card" href="{{gif.url}}" style="background-image: url({{gif.img}})" target="new">
+  </a>
+  {{/each }}
+</div>
+
+<a href="/" class="btn btn-dark">moar gifs 4 mi pls</a>
