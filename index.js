@@ -49,7 +49,8 @@ app.use(
     const results = await fetch(url)
     const gifs = await results.json()
     const gifsImgArr = []
-    gifs.data.forEach((e) => {
+    // CHANGE THIS FUNCTION TO .MAP
+    gifs.data.forEach(e => {
       gifsImgArr.push({
         img: e.images.fixed_height.url,
         url: e.url})
@@ -57,8 +58,7 @@ app.use(
     if (gifsImgArr.length > 0) {
       resp.status(200)
       resp.render('search', {
-        gifsImgArr: gifsImgArr,
-        keyword: search
+        gifsImgArr, search
       })
     } else {
       resp.status(204)

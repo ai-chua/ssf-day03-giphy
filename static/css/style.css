@@ -32,19 +32,21 @@ a.btn {
 
 /*SEARCH RESULTS*/
 .results-container {
-  width: 70vw;
-  margin: 0 auto;
+  /*width: 70vw;*/
+  /*margin: 0 auto;*/
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 2em;
   flex-grow: 1;
   padding: 0.8em;
+  justify-items: center;
 }
 
 .card {
   background-size: cover;
   background-position: center;
-  height: 180px;
+  height: 280px;
+  width: 400px;
   border-radius: 1px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   display: flex;
@@ -56,15 +58,11 @@ a.btn {
   text-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
 
-@media(max-width: 900px) {
+@media(max-width: 1200px) {
   .results-container {
     width: 85vw;
     grid-template-columns: 1fr;
     grid-gap: 2em;
-  }
-
-  .card {
-    width: 350px;
   }
 }
 
