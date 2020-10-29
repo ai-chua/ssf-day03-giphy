@@ -56,19 +56,15 @@ a.btn {
   text-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
 
-@media(max-width: 400px) {
-  .results-container {
-    width: 95vw;
-    grid-template-columns: 1fr;
-    grid-gap: 1.5em;
-  }
-}
-
-@media(max-width: 1000px) {
+@media(max-width: 900px) {
   .results-container {
     width: 85vw;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     grid-gap: 2em;
+  }
+
+  .card {
+    height: 450px;
   }
 }
 
