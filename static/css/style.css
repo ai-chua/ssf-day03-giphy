@@ -58,11 +58,17 @@ a.btn {
   text-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
 
-@media(max-width: 1200px) {
+@media(max-width: 576px) {
   .results-container {
-    width: 85vw;
+    width: 90vw;
     grid-template-columns: 1fr;
-    grid-gap: 2em;
+    grid-gap: 1.5em;
   }
+
+  .card {
+    width: 80%;
+    height: 200px;
+  }
+
 }
 
